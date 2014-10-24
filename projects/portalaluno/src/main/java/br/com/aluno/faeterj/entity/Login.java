@@ -2,7 +2,7 @@ package br.com.aluno.faeterj.entity;
 
 public class Login {
 	
-	String matricula;
+	private String matricula;
 	String senha;
 	public String getMatricula() {
 		return matricula;

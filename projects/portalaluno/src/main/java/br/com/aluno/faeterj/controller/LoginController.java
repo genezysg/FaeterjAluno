@@ -13,7 +13,8 @@ public class LoginController {
 
 	
 	@RequestMapping("/")
-	public String index(){
+	public String index(Login login,Model model){
+		model.addAttribute("login",new Login());
 		return "home";
 	}
 	
