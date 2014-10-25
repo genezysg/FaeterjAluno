@@ -43,6 +43,7 @@ Temporary Items
 .apdisk
 
 *.lock
+projects/.metadata
 projects/.metadata/.log
 projects/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index
 *.prefs
@@ -83,3 +84,16 @@ projects/.metadata/.plugins/org.eclipse.jdt.ui/jdt-images/2.png
 projects/.metadata/.plugins/org.eclipse.jdt.ui/jdt-images/3.png
 projects/.metadata/.plugins/org.eclipse.jdt.ui/jdt-images/4.png
 projects/.metadata/.plugins/org.eclipse.jdt.ui/jdt-images/5.png
+*.project
+*.launch
+*.gen
+*.cfs
+*.properties
+*.mark
+*.xmi
+projects/.metadata/.plugins/org.eclipse.m2e.core/nexus/26522e0d83a422eed93329ece7565cfc/segments_2
+projects/.metadata/.plugins/org.eclipse.m2e.core/nexus/830bc118332e77292949ed1e6d2fabe0/segments_2
+projects/.metadata/.plugins/org.eclipse.m2e.core/nexus/989bee66d3fda97d91c9082e4cfc2640/segments_2
+projects/.metadata/.plugins/org.eclipse.rse.core/.log
+*.log
+projects/.metadata/.plugins/org.eclipse.m2e.logback.configuration/logback.1.4.0.20130601-0317.xml
