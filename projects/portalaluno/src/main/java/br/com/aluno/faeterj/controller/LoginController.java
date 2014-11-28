@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.com.aluno.faeterj.entity.Login;
+import br.com.aluno.faeterj.model.entity.Login;
 
 @Controller
 public class LoginController {
