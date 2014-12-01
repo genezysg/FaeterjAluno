@@ -88,7 +88,7 @@ projects/.metadata/.plugins/org.eclipse.jdt.ui/jdt-images/5.png
 *.launch
 *.gen
 *.cfs
-*.properties
+
 *.mark
 *.xmi
 projects/.metadata/.plugins/org.eclipse.m2e.core/nexus/26522e0d83a422eed93329ece7565cfc/segments_2
