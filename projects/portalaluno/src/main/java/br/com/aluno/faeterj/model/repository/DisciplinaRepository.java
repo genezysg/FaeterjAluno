@@ -7,7 +7,7 @@ import br.com.aluno.faeterj.model.entity.Disciplina;
 
 
 public interface DisciplinaRepository extends CrudRepository<Disciplina, Long>{
-
 	
-	Disciplina findOne(long id);
+	Disciplina findOne(Long arg);
+
 }

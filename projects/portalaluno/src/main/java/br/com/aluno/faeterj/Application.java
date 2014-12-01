@@ -22,13 +22,13 @@ public class Application {
     public static void main(String[] args) {
     	
         ConfigurableApplicationContext context = SpringApplication.run(Application.class);
-        AlunoRepository alunorepository = context.getBean(AlunoRepository.class);
-        DisciplinaRepository disciplinarepository = context.getBean(DisciplinaRepository.class);
+       // AlunoRepository alunorepository = context.getBean(AlunoRepository.class);
+        //DisciplinaRepository disciplinarepository = context.getBean(DisciplinaRepository.class);
         
-        
+       /* 
 
         Aluno aluno=new Aluno();
-        aluno.setNome("");
+        aluno.setNome("genezys");
         alunorepository.save(aluno);
         
         Disciplina disciplina =new Disciplina();
@@ -36,6 +36,9 @@ public class Application {
         disciplina.setProfessor("andre neves");
         disciplina.setCargaHoraria(45);
         disciplinarepository.save(disciplina);
+       
+        context.close();
+         */
        
     }
 
