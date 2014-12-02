@@ -2,10 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Handing Form Submission</title>
+    <link rel="stylesheet"
+      th:href="@{/css/novo.css}"
+      href="../../css/novo.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+
 <body>
-	<h1>Form</h1>
+	<h1>Portal do Aluno</h1>
     <form action="#" th:action="@{/}" th:object="${login}" method="post">
     	<p>Matricula: <input type="text" th:field="*{matricula}" /></p>
         <p>Senha: <input type="text" th:field="*{senha}" /></p>
