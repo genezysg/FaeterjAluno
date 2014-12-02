@@ -21,12 +21,7 @@ public class GradeController {
     @RequestMapping(value="/novo", method=RequestMethod.GET)
     public String greetingForm(Model model) {
     
-    Disciplina disciplina = repository.findOne(1L);
-    disciplina = new Disciplina();
-    disciplina.setNome("OO2");
-    disciplina.setProfessor("Miguel");
-    disciplina.setCargaHoraria(30);
-    repository.save(disciplina);	
+    Disciplina disciplina = repository.findOne(2L); //busca uma disciplina pelo ID
     model.addAttribute("disciplina", disciplina);
     return "novo";
     }
