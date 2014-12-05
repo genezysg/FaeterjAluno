@@ -1,10 +1,15 @@
 package br.com.aluno.faeterj.model.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -13,10 +18,21 @@ public class Turma {
 	  @GeneratedValue(strategy=GenerationType.AUTO)
 	  private long turmaid;
 	  
+	  
 	  @ManyToOne 
 	  @JoinColumn(name="id", referencedColumnName = "disciplinaid", nullable = false)
 	  private Disciplina disciplina;
 	  private String ano;
+	 
+	  @ManyToMany(fetch = FetchType.LAZY, mappedBy = "turmas")
+	  private Set<Aluno> alunos;
+	  public Set<Aluno> getAlunos() {
+			return this.alunos;
+		}
+	 
+		public void setAlunos(Set<Aluno> alunos) {
+			this.alunos = alunos;
+		}
 	 
 	  
 	public long getId() {
