@@ -13,7 +13,7 @@ public class Aluno {
 	@GeneratedValue
 	private long idpessoa;
 	private String nome;
-	private String matricula;
+	private String matriculaaluno;
 	private String email;
 
 	public long getId() {
@@ -33,11 +33,11 @@ public class Aluno {
 	}
 
 	public String getMatriculaAluno() {
-		return matricula;
+		return matriculaaluno;
 	}
 
 	public void setMatriculaAluno(String matriculaAluno) {
-		this.matricula = matriculaAluno;
+		this.matriculaaluno = matriculaAluno;
 	}
 
 	public String getEmail() {
