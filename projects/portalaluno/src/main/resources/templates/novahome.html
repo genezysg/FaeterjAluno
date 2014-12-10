@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<div th:replace="../fragments/header :: header"></div>
 	<h1>Bem vindo ao Portal do Aluno</h1>
 	<h2> Insira seus dados para ter o acesso</h2>
     <form action="#" th:action="@{/}" th:object="${login}" method="post">

@@ -3,8 +3,10 @@
 <head>
 <title>PRINCIPAL</title>
 <link rel="stylesheet"
-      th:href="@{/css/novaprincipal.css}"
-      href="../../css/novaprincipal.css"/>
+      th:href="@{/css/novo.css}"
+      href="../../css/novo.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
 <style>
 table, th, td {
     border: 1px solid black;
@@ -13,19 +15,10 @@ table, th, td {
 </head>
 
 <body>
-<nav id="menu">
-	<ul>
-		<li><a href="/novaprincipal">INÕCIO</a></li>
-		<li><a href="/novainscricoes">INSCRI«‘ES</a></li>
-		<li><a href="/novahistorico">HIST“RICO</a></li>
-		<li><a href="/novadeclaracao">DECLARA«¬O</a></li>
-		<li><a href="/novacontato">CONTATO</a></li>
-		<li><a href="/novahome">LOGOUT</a></li>
-	</ul>
-</nav>
+<div th:replace="../fragments/header :: header"></div>
 
 <p><span><h1>Bem vindo, Nome do Aluno&nbsp; </h1></span></p>
-<p><span>N˙mero de MatrÌcula</span></p>
+<p><span>N√∫mero de Matr√≠cula</span></p>
 
 <div id="u155" class="text">
         <p><span>Agenda do Aluno</span></p>
@@ -84,7 +77,7 @@ table, th, td {
     <td></td>
   </tr>
   <tr>
-    <td><b>M…DIA</b></td>
+    <td><b>M√âDIA</b></td>
     <td></td>
     <td></td>
     <td></td>
@@ -105,7 +98,7 @@ table, th, td {
     
   </tr>
   <tr>
-    <td><b>M…DIA FINAL</b></td>
+    <td><b>M√âDIA FINAL</b></td>
     <td></td>
     <td></td>
     <td></td>
@@ -121,7 +114,7 @@ table, th, td {
  <p>      
  <table>
   <tr>
-    <th>HOR¡RIO</th>
+    <th>HOR√ÅRIO</th>
     <th>SEG</th>
     <th>TER</th>
     <th>QUA</th>
@@ -131,7 +124,7 @@ table, th, td {
     
   </tr>
   <tr>
-    <td><b>1∫ TEMPO</b></td>
+    <td><b>1¬∫ TEMPO</b></td>
     <td></td>
     <td></td>
     <td></td>
@@ -140,7 +133,7 @@ table, th, td {
     <td></td>
   </tr>
   <tr>
-    <td><b>2∫ TEMPO</b></td>
+    <td><b>2¬∫ TEMPO</b></td>
     <td></td>
     <td></td>
     <td></td>
@@ -149,7 +142,7 @@ table, th, td {
     <td></td>
   </tr>
   <tr>
-    <td><b>3∫ TEMPO</b></td>
+    <td><b>3¬∫ TEMPO</b></td>
     <td></td>
     <td></td>
     <td></td>
@@ -158,7 +151,7 @@ table, th, td {
     <td></td>
   </tr>
   <tr>
-    <td><b>4∫ TEMPO</b></td>
+    <td><b>4¬∫ TEMPO</b></td>
     <td></td>
     <td></td>
     <td></td>
@@ -167,7 +160,7 @@ table, th, td {
     <td></td>
   </tr>
   <tr>
-    <td><b>5∫ TEMPO</b></td>
+    <td><b>5¬∫ TEMPO</b></td>
     <td></td>
     <td></td>
     <td></td>
@@ -176,7 +169,7 @@ table, th, td {
     <td></td>
   </tr>
   <tr>
-    <td><b>6∫ TEMPO</b></td>
+    <td><b>6¬∫ TEMPO</b></td>
     <td></td>
     <td></td>
     <td></td>

@@ -11,3 +11,27 @@ p {
     font-family: "Times New Roman";
     font-size: 20px;
 }
+
+#menu ul {
+	padding:0px;
+	margin:0px;
+	background-color:#191970;
+	list-style:none;
+}
+#menu ul li { display: inline; }
+
+#menu ul li a {
+	padding: 2px 10px;
+	display: inline-block;
+ 
+	/* visual do link */
+	background-color:#191970;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#menu ul li a:hover {
+	background-color:#D6D6D6;
+	color: #6D6D6D;
+	
+}
