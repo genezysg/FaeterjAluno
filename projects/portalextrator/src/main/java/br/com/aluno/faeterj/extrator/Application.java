@@ -22,14 +22,16 @@ public class Application {
 //				.getBean(LoginRepository.class);
 //		AlunoRepository alunorepository = context
 //				.getBean(AlunoRepository.class);
-		TurmaRepository turmarepository = context
-				.getBean(TurmaRepository.class);
-		
+//		TurmaRepository turmarepository = context
+//				.getBean(TurmaRepository.class);
+		InscricaoRepository inscricaorepository = context
+				.getBean(InscricaoRepository.class);
 		
 
 //		Iterable<Login> logins = loginrepository.findAll();
 //		Iterable<Aluno> alunos = alunorepository.findAll();
-		Iterable<Turma> turmas = turmarepository.findAll();
+//		Iterable<Turma> turmas = turmarepository.findAll();
+		Iterable<Inscricao> inscricoes = inscricaorepository.findAll();
 
 		
 //		System.out.println("Todos os logins nessa porra com findAll():");
@@ -45,13 +47,23 @@ public class Application {
 //					+ aluno.getMatriculaAluno() + "\ne-mail: " + aluno.getEmail()+"\n");
 //		}
 		
-		System.out.println("Todas as turmas nessa porra com findAll():");
+//		System.out.println("Todas as turmas nessa porra com findAll():");
+//		System.out.println("-------------------------------");
+//		for (Turma turma : turmas) {
+//			System.out.println("\nId Turma: " + turma.getIdturma() + "\nDisciplina: " 
+//					+ turma.getSigladisciplina() + "\nTurno: " + turma.getTurno() +
+//					"\nPeriodo:" + turma.getSiglaperiodoletivo() + "\n");
+//		}
+		
+		System.out.println("Todas as inscricoes nessa porra com findAll():");
 		System.out.println("-------------------------------");
-		for (Turma turma : turmas) {
-			System.out.println("\nId Turma: " + turma.getIdturma() + "\nDisciplina: " 
-					+ turma.getSigladisciplina() + "\nTurno: " + turma.getTurno() +
-					"\nPeriodo:" + turma.getSiglaperiodoletivo() + "\n");
+		for (Inscricao inscricao : inscricoes) {
+			System.out.println("\nId Turma: " 
+					+ "\n:Media Final: " + inscricao.getMediaFinal() 
+					+ "\nTotal de Faltas: " + inscricao.getTotalFaltas() 
+					+ "\nSituacao da Inscricao: " + inscricao.getSituacaoInscricao() + "\n");
 		}		
+
 
 		System.out.println();
 
