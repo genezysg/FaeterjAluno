@@ -14,8 +14,8 @@ public class LoginController {
 	
 	@RequestMapping("/")
 	public String index(Login login,Model model){
-		model.addAttribute("login",new Login());
-		return "home";
+		//model.addAttribute("login",new Login());
+		return "novaprincipal";
 	}
 	
 	@RequestMapping(value="/",method=RequestMethod.POST)
@@ -26,7 +26,7 @@ public class LoginController {
 			model.addAttribute("login",login);
 			return "aluno";
 		}
-		return "home";
+		return "novaprincipal";
 		
 			
 	}

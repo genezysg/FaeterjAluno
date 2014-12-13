@@ -15,14 +15,14 @@ import br.com.aluno.faeterj.model.repository.DisciplinaRepository;
 public class GradeController {
 
 	
-	 @Autowired
-	private DisciplinaRepository repository;
+	// @Autowired
+//	private DisciplinaRepository repository;
 	 
     @RequestMapping(value="/novo", method=RequestMethod.GET)
     public String greetingForm(Model model) {
     
-    Disciplina disciplina = repository.findOne(1L); //busca uma disciplina pelo ID
-    model.addAttribute("disciplina", disciplina);
+   // Disciplina disciplina = repository.findOne(1L); //busca uma disciplina pelo ID
+   // model.addAttribute("disciplina", disciplina);
     return "home";
     }
 

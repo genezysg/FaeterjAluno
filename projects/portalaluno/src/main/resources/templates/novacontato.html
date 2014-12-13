@@ -1,0 +1,37 @@
+<html>
+<head>
+<title> CONTATO </title>
+	<link rel="stylesheet"
+      th:href="@{/css/novo.css}"
+      href="../../css/novo.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+</head>
+<body>
+<div th:replace="../fragments/header :: header"></div>
+<h1> CONTATO </h1>
+<p><span>Assunto:</span>
+<select id="u2_input">
+          <option value="Solicitação de cadastro">Solicitação de cadastro</option>
+          <option value="Solicitação de senha">Solicitação de senha</option>
+          <option value="Críticas e sugestões">Críticas e sugestões</option>
+          <option value="Outros assuntos">Outros assuntos</option>
+        </select>
+</p>
+
+<p><span>Nome:</span> 
+<input id="u7_input" type="text" value=""/>
+</p>
+
+<p><span>Email:</span> 
+<input id="u7_input" type="text" value=""/>
+</p>
+
+<p><span>Mensagem:</span>
+<textarea id="u11_input"></textarea>
+</p>
+
+<p><input id="u14_input" type="submit" value="Enviar"/></p>
+</body>
+
+</html>
