@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Handing Form Submission</title>
@@ -9,12 +9,12 @@
 </head>
 
 <body>
-
-	<h1>Portal do Aluno</h1>
+        <h1>Welcome!</h1>
     <form action="#" th:action="@{/}" th:object="${login}" method="post">
     	<p>Matricula: <input type="text" th:field="*{matricula}" /></p>
         <p>Senha: <input type="text" th:field="*{senha}" /></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
+    <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
 </body>
 </html>
