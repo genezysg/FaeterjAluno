@@ -12,13 +12,13 @@
 <div th:replace="../fragments/header :: header"></div>
 	<h1>Bem vindo ao Portal do Aluno</h1>
 	<h2> Insira seus dados para ter o acesso</h2>
-    <form action="#" th:action="@{/}" th:object="${login}" method="post">
-    	<p>Matrícula: <input type="text" th:field="*{matricula}" /></p>
-        <p>Senha: <input type="password" th:field="*{senha}" /></p>
-        <p><input type="submit" value="Enviar" /> </p>
-    </form>
+    <form th:action="@{/home}" method="post">
+            <div><label> User Name : <input type="text" name="username"/> </label></div>
+            <div><label> Password: <input type="password" name="password"/> </label></div>
+            <div><input type="submit" value="Sign In"/></div>
+        </form>
     
-    <p> Se você está tendo problemas no acesso, clique <a href="novacontato.html">aqui</a>
-    
+    <p> Se você está tendo problemas no acesso, clique <a href="/contato">aqui</a>
+    </p>
     </body>
 </html>

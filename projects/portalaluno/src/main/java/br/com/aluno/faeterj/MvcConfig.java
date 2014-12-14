@@ -9,12 +9,13 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/novaprincipal").setViewName("novaprincipal");
-        registry.addViewController("/novahome").setViewName("novahome");
-        registry.addViewController("/novainscricoes").setViewName("novainscricoes");
-        registry.addViewController("/novahistorico").setViewName("novahistorico");
-        registry.addViewController("/novadeclaracao").setViewName("novadeclaracao");
-        registry.addViewController("/novacontato").setViewName("novacontato");
+        registry.addViewController("/").setViewName("principal");
+        registry.addViewController("/home").setViewName("home");
+        registry.addViewController("/inscricoes").setViewName("inscricoes");
+        registry.addViewController("/historico").setViewName("historico");
+        registry.addViewController("/declaracao").setViewName("declaracao");
+        registry.addViewController("/contato").setViewName("contato");
+        //registry.addViewController("/login").setViewName("login");
        // registry.addViewController("../fragments/header").setViewName("/fragments :: header");
         
         

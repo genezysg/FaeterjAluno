@@ -6,11 +6,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-
 import br.com.aluno.faeterj.model.entity.Aluno;
-import br.com.aluno.faeterj.model.entity.Disciplina;
 import br.com.aluno.faeterj.model.repository.AlunoRepository;
-import br.com.aluno.faeterj.model.repository.DisciplinaRepository;
 
 
 @Configuration
