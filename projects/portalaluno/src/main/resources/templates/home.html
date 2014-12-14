@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handing Form Submission</title>
+    <title>PORTAL DO ALUNO</title>
     <link rel="stylesheet"
       th:href="@{/css/novo.css}"
       href="../../css/novo.css"/>
@@ -9,12 +9,16 @@
 </head>
 
 <body>
-        <h1>Welcome!</h1>
+<div th:replace="../fragments/header :: header"></div>
+	<h1>Bem vindo ao Portal do Aluno</h1>
+	<h2> Insira seus dados para ter o acesso</h2>
     <form action="#" th:action="@{/}" th:object="${login}" method="post">
-    	<p>Matricula: <input type="text" th:field="*{matricula}" /></p>
-        <p>Senha: <input type="text" th:field="*{senha}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    	<p>Matrícula: <input type="text" th:field="*{matricula}" /></p>
+        <p>Senha: <input type="password" th:field="*{senha}" /></p>
+        <p><input type="submit" value="Enviar" /> </p>
     </form>
-    <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
-</body>
+    
+    <p> Se você está tendo problemas no acesso, clique <a href="novacontato.html">aqui</a>
+    
+    </body>
 </html>
