@@ -10,7 +10,11 @@
 
 <body>
 <div th:replace="../fragments/header :: header"></div>
+	
 	<h1>Bem vindo ao Portal do Aluno</h1>
+	<div th:if="${param.logout}">
+            Você foi deslogado mané.
+        </div>
 	<h2> Insira seus dados para ter o acesso</h2>
     <form th:action="@{/home}" method="post">
             <div><label> User Name : <input type="text" name="username"/> </label></div>
@@ -18,7 +22,7 @@
             <div><input type="submit" value="Sign In"/></div>
         </form>
     
-    <p> Se vocÃª estÃ¡ tendo problemas no acesso, clique <a href="/contato">aqui</a>
+    <p> Se você está tendo problemas no acesso, clique <a href="/contato">aqui</a>
     </p>
     </body>
 </html>
