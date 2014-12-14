@@ -24,7 +24,8 @@ public class Turma {
 	  private String turno;
 	  
 	  
-		@OneToMany(mappedBy = "turma", cascade = CascadeType.ALL)
+		@OneToMany
+		@JoinColumn(name="idturma")
 		private Set<Inscricao> Inscricao;
 
 

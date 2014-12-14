@@ -1,30 +1,35 @@
 package br.com.aluno.faeterj.model.entity;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Inscricao {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idinscricao;
+	@EmbeddedId
+	InscricaoId id;
 	private String situacaoinscricao;
-	private double mediafinal;
-	private int totalfaltas;
-
-	@ManyToOne
-	@JoinColumn(name = "idaluno", referencedColumnName = "idpessoa", nullable = false)
-	private Aluno aluno;
-
-	@ManyToOne
-	@JoinColumn(name = "turmaid", referencedColumnName = "idturma", nullable = false)
-	private Turma turma;
-
+	private Double mediafinal;
+	private Integer totalfaltas;
+	
+	
+	public Inscricao(Aluno aluno,Turma turma)
+	{
+		id= new InscricaoId(aluno,turma);
+	}
+	
+	public Inscricao(){};
+    @ManyToOne
+    @JoinColumn(name="idturma", referencedColumnName="idturma",insertable =  false, updatable = false)
+    public Turma turma;
+    
+    @ManyToOne
+    @JoinColumn(name="matriculaaluno", referencedColumnName="matriculaaluno",insertable =  false, updatable = false)
+    public Aluno aluno;
+    
+    
 	public String getSituacaoInscricao() {
 		return situacaoinscricao;
 	}
@@ -33,7 +38,7 @@ public class Inscricao {
 		this.situacaoinscricao = situacaoInscricao;
 	}
 
-	public double getMediaFinal() {
+	public Double getMediaFinal() {
 		return mediafinal;
 	}
 
@@ -41,7 +46,7 @@ public class Inscricao {
 		this.mediafinal = mediaFinal;
 	}
 
-	public int getTotalFaltas() {
+	public Integer getTotalFaltas() {
 		return totalfaltas;
 	}
 

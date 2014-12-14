@@ -40,17 +40,14 @@ public class testController {
     turma.setSigladisciplina("oo2");;   
     trepository.save(turma);
     
-    Inscricao i = new Inscricao();
+    Inscricao i = new Inscricao(aluno,turma);
     i.setMediaFinal(9.3);
-    i.setAluno(aluno);
-    i.setTurma(turma);
+    i.setTotalFaltas(150);
     irepository.save(i);
     
-    Set<Inscricao> Inscricoes = new HashSet<Inscricao>();
-    Inscricoes.add(i);
+ 
     
-   aluno.setInscricao(Inscricoes);
-    turma.setInscricao(Inscricoes);
+
     irepository.save(i);
     repository.save(aluno);
     trepository.save(turma);
