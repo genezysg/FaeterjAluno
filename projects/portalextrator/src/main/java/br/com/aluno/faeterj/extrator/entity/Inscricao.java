@@ -1,10 +1,12 @@
-package br.com.aluno.faeterj.extrator;
+package br.com.aluno.faeterj.extrator.entity;
+
+import java.io.Serializable;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
 @Entity
-public class Inscricao {
+public class Inscricao implements Serializable {
 
 	@EmbeddedId
 	InscricaoId id;
@@ -20,7 +22,7 @@ public class Inscricao {
 		this.situacaoinscricao = situacaoInscricao;
 	}
 
-	public double getMediaFinal() {
+	public Double getMediaFinal() {
 		return mediafinal;
 	}
 
@@ -28,7 +30,7 @@ public class Inscricao {
 		this.mediafinal = mediaFinal;
 	}
 
-	public int getTotalFaltas() {
+	public Integer getTotalFaltas() {
 		return totalfaltas;
 	}
 

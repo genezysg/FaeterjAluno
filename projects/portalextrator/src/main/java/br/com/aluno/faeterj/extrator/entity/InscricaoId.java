@@ -1,4 +1,4 @@
-package br.com.aluno.faeterj.extrator;
+package br.com.aluno.faeterj.extrator.entity;
 
 import java.io.Serializable;
 

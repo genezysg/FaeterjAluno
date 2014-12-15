@@ -1,4 +1,6 @@
-package br.com.aluno.faeterj.extrator;
+package br.com.aluno.faeterj.extrator.entity;
+
+import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table (name = "viewaluno")
 
-public class Aluno {
+public class Aluno implements Serializable{
 	@Id
 	@GeneratedValue
 	private long idpessoa;
