@@ -1,0 +1,3 @@
+create view viewturma as select t.idturma, t.sigladisciplina, t.turno, p.siglaperiodoletivo from turma t inner join periodoletivo p on p.idPeriodoLetivo=t.idPeriodoLetivo ;
+
+create view viewaluno as select pessoa.nome, pessoa.idPessoa, pessoa.email, matriculaaluno.matriculaAluno from aluno inner join pessoa on aluno.idPessoa = pessoa.idPessoa inner join matriculaaluno on pessoa.idPessoa = matriculaaluno.idPessoa;
