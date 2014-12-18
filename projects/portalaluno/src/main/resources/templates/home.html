@@ -16,12 +16,13 @@
             Você foi deslogado mané.
         </div>
 	<h2> Insira seus dados para ter o acesso</h2>
-    <form th:action="@{/home}" method="post">
+    <div id="formPrincipal">
+    	<form th:action="@{/home}" method="post">   
             <div><label> User Name : <input type="text" name="username"/> </label></div>
             <div><label> Password: <input type="password" name="password"/> </label></div>
             <div><input type="submit" value="Sign In"/></div>
-        </form>
-    
+    	</form>
+    </div>
     <p> Se você está tendo problemas no acesso, clique <a href="/contato">aqui</a>
     </p>
     </body>

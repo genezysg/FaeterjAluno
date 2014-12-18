@@ -3,13 +3,22 @@ body {
 }
 
 h1 {
-    color: orange;
+    color: #191970;
     text-align: center;
+    font-family: "Helvetica";
 }
 
 p {
-    font-family: "Times New Roman";
+    font-family: "Helvetica";
     font-size: 20px;
+}
+.byebye{
+        background:#6D6D6D;
+        color:#ffffff;
+        float:right;
+        position:absolute; 
+        top:10px;
+        left: 1840px;
 }
 
 #menu ul {
