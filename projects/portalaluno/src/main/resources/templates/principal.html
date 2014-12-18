@@ -15,9 +15,24 @@ table, th, td {
 </head>
 
 <body>
+
+
+<div th:if="${param.error}">
+            nao tem aluno mané
+        </div>
+
+
+
+
+
+
+
+
 <div th:replace="../fragments/header :: header"></div>
 
 <p><span><h1>Bem vindo, Nome do Aluno&nbsp; </h1></span></p>
+<p th:text="'id: ' + ${Aluno.matriculaaluno}" />
+    <p th:text="'content: ' + ${Aluno.nome}" />
 <p><span>Número de Matrícula</span></p>
 
 <div id="u155" class="text">
@@ -25,88 +40,34 @@ table, th, td {
         </div>
  <p>    
  <table>
-  <tr>
-    <th></th>
-    <th>DISC1</th>
-    <th>DISC2</th>
-    <th>DISC3</th>
-    <th>DISC4</th>
-    <th>DISC5</th>
-    <th>DISC6</th>
-    <th>DISC7</th>
-    
-  </tr>
-  <tr>
-    <td><b>FALTAS</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+ <tr data-th-each="ins : ${inscricoes}">
+ 	     <td><b>DISCIPLINA</b></td>
+    <td data-th-text="${ins.getTurma().getSigladisciplina()}">...</td>
+</tr>
+   <tr data-th-each="ins : ${inscricoes}">
+           <td><b>FALTAS</b></td>
+    <td data-th-text="${ins.getTotalFaltas()}">...</td>
   </tr>
   <tr>
     <td><b>NOTA AV1</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+   
   </tr>
   <tr>
     <td><b>NOTA AV2</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
   </tr>
   <tr>
     <td><b>NOTA AVS</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
   </tr>
   <tr>
     <td><b>MÉDIA</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+     
   </tr>
   <tr>
     <td><b>NOTA AVF</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    
-  </tr>
-  <tr>
+ </tr>
+  <tr data-th-each="ins : ${inscricoes}">
     <td><b>MÉDIA FINAL</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    
+    <td data-th-text="${ins.getMediaFinal()}">...</td>
   </tr>
 </table>
  </p> 

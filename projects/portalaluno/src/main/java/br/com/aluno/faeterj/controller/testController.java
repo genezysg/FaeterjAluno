@@ -42,10 +42,10 @@ public class testController {
     
     Inscricao i = new Inscricao(aluno,turma);
     i.setMediaFinal(9.3);
-    i.setTotalFaltas(150);
+    i.setTotalFaltas(15);
     irepository.save(i);
     
- 
+     
     
 
     irepository.save(i);
@@ -54,7 +54,7 @@ public class testController {
    
     
 // model.addAttribute("turma", turma);
-    return "novo";
+    return "redirect:" + "/principal";
     }
 
 
