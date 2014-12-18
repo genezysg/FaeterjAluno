@@ -17,13 +17,13 @@ import java.util.Set;
 public class Aluno {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idPessoa;
+    private Long matriculaaluno;
 
     @NotEmpty(message = "Nome é necessário.")
     private String nome;
 	
 	@NotEmpty(message = "Matrícula é necessária.")
-	private Long matriculaAluno;
+	 private Long idpessoa;
 	
     @Email(message = "Favor informar e-mail.")
     @NotEmpty(message = "E-mail é necessário.")
@@ -31,7 +31,7 @@ public class Aluno {
     private String email;
 
     @NotEmpty(message = "Senha é necessária.")
-    private String senha;
+    private String password;
 	
 	@OneToMany
 	@JoinColumn(name="matriculaaluno")
@@ -40,11 +40,11 @@ public class Aluno {
     public Aluno() {}
 
     public Aluno(Aluno aluno) {
-        this.idPessoa = aluno.idPessoa;
-		this.matriculaAluno= aluno.matriculaAluno;
+        this.idpessoa = aluno.idpessoa;
+		this.matriculaaluno= aluno.matriculaaluno;
         this.nome = aluno.nome;
         this.email = aluno.email;
-        this.senha = aluno.senha;
+        this.password = aluno.password;
     }
 
 	public Set<Inscricao> getInscricao() {
@@ -56,20 +56,20 @@ public class Aluno {
 		Inscricao = inscricao;
 	}
 	
-    public String getSenha() {
-        return senha;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-    	this.senha = senha;
+    public void setPassword(String password) {
+    	this.password = password;
     }
 
     public Long getIdPessoa() {
-        return idPessoa;
+        return idpessoa;
     }
 
     public void setIdPessoa(Long idPessoa) {
-        this.idPessoa = idPessoa;
+        this.idpessoa = idPessoa;
     }
 
     public String getNome() {
@@ -88,11 +88,11 @@ public class Aluno {
         this.email = email;
     }
 	
-	public Long getMatriculaAluno(Long matriculaAluno) {
-        return matriculaAluno;
+	public Long getMatriculaAluno() {
+        return matriculaaluno;
     }
 
     public void setMatriculaAluno(Long matriculaAluno) {
-        this.matriculaAluno = matriculaAluno;
+        this.matriculaaluno = matriculaAluno;
     }
 }

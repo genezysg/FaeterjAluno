@@ -9,37 +9,39 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import br.com.aluno.faeterj.model.entity.User;
-import br.com.aluno.faeterj.model.repository.UserRepository;
+import br.com.aluno.faeterj.model.entity.Aluno;
+import br.com.aluno.faeterj.model.repository.AlunoRepository;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserRepositoryUserDetailsService implements UserDetailsService {
-    private final UserRepository userRepository;
-
+public class AlunoRepositoryUserDetailsService implements UserDetailsService {
+    private final AlunoRepository alunoRepository;
+    
     @Autowired
-    public UserRepositoryUserDetailsService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public AlunoRepositoryUserDetailsService(AlunoRepository alunoRepository) {
+        this.alunoRepository = alunoRepository;
     }
 
     /* (non-Javadoc)
      * @see org.springframework.security.core.userdetails.UserDetailsService#loadUserByUsername(java.lang.String)
      */
     @Override
-    public UserDetails loadUserByUsername(String username)
-            throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(username);
-        if(user == null) {
-            throw new UsernameNotFoundException("Could not find user " + username);
+    public UserDetails loadUserByUsername(String matriculaAluno)
+        throws UsernameNotFoundException {
+    	Long mat=Long.parseLong(matriculaAluno);
+    	Aluno aluno = alunoRepository.findOne(mat);
+        if(aluno == null) {
+            throw new UsernameNotFoundException("N~ão achou o aluno " + matriculaAluno);
         }
-        return new UserRepositoryUserDetails(user);
+        return new AlunoRepositoryUserDetails(aluno);
     }
 
-    private final static class UserRepositoryUserDetails extends User implements UserDetails {
+    private final static class AlunoRepositoryUserDetails extends Aluno implements UserDetails {
 
-        private UserRepositoryUserDetails(User user) {
-            super(user);
+        private AlunoRepositoryUserDetails(Aluno aluno) {
+            super(aluno);
+           
         }
 
         @Override

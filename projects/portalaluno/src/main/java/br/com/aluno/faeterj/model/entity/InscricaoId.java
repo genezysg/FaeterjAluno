@@ -11,7 +11,7 @@ public class InscricaoId implements Serializable{
     
     public InscricaoId(Aluno aluno,Turma turma)
     {
-    	matriculaaluno=aluno.getMatriculaaluno();
+    	matriculaaluno=aluno.getMatriculaAluno();
     	idturma=turma.getIdturma();
     }
     
