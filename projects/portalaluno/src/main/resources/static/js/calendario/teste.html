@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/calendar_siger.css" />
+		<script type="text/javascript" src="../general/jquery.min.js"></script>	
+		<script type="text/javascript" src="js/jquery.calendario.js"></script>
+		<script type="text/javascript" src="jCalendar.js"></script>
+		<style>
+		#calendar{
+		}
+		#nav-calendar{
+			text-align: right;
+		}
+		</style>
+
+	</head>
+	<body>
+		<div id='nav-calendar'><input type='button' id='custom-prev' value='&lt;'/><span><span id='custom-month'></span>&nbsp;/&nbsp;<span id='custom-year''></span></span><input type='button' id='custom-next' value='&gt;'/></div>
+		<div id="calendar" class="fc-calendar-container"></div>
+		<script type="text/javascript">
+
+			var dados = {
+				'11-15-2014': 'Compromisso meu',
+				'11-22-2014': 'Compromisso seu'
+			};
+			
+			$( '#calendar' ).jCalendar(dados);
+		</script>
+
+	</body>
+</html>

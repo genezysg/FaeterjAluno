@@ -1,0 +1,110 @@
+<html>
+<head>
+<title> AGENDA </title>
+<link rel="stylesheet"
+      th:href="@{/css/novo.css}"
+      href="../../css/novo.css"/>
+<link rel="stylesheet"
+      th:href="@{/css/calendario/css/calendar_siger.css}"
+      />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<style>
+		#calendar{
+			height: 90%;
+		}
+		#nav-calendar{
+			text-align: right;
+		}
+		.fc-compromisso {
+			color: #fff;
+			font-size: 11px;
+			font-family: arial;
+		}
+
+		#relContainer div#loading
+		{
+			text-align: center;
+		}
+		
+		#relContainer img
+		{
+			margin-top: 50px;
+			margin-bottom: 50px;
+		}
+		
+		@media print {
+		  body * {
+		    visibility:hidden;
+		  }
+		  .printSection, .printSection * {
+		    visibility:visible;
+		  }
+		  .printSection {
+		    position:absolute;
+		    left:0;
+		    top:0;
+		  }
+		}		
+		</style>    
+</head>
+
+<body>
+<div th:replace="../fragments/header :: header"></div>
+	<h1> AGENDA </h1>
+<!-- ################################################### -->	
+		<div id='nav-calendar'>
+			<button type="button" id='custom-prev' class="btn btn-default btn-sm"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+			<span style='text-align: center; min-width:150px; display:inline-block'>
+				<span id='custom-month'></span>&nbsp;/&nbsp;
+				<span id='custom-year'></span>
+			</span>
+			<button type="button" id='custom-next' class="btn btn-default btn-sm"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+		</div>
+		<div id="calendar" class="fc-calendar-container"></div>
+		<!-- ############################################################################# -->
+		<!-- Modal -->
+		<div class="modal fade" id="relModal" tabindex="-1" role="dialog" aria-labelledby="relModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title" id="relModalLabel">Eventos do dia</h4>
+		      </div>
+		      <div class="modal-body printSection" id="relContainer">
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+		        <button type="button" class="btn btn-primary" onclick='window.print()'>Imprimir</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- ############################################################################# -->  
+		
+		<script type="text/javascript">
+			
+			var dados = {
+			};
+
+			function dayclick($el, $contentEl, dateProperties){
+				/*
+				Elementos de dateProperties:
+				day
+				month
+				monthname
+				year
+				weekday
+				weekdayname
+				*/
+				$('#relContainer').html("<div id='loading'><img src='/siger/img/loadingAnimation.gif'/></div>");
+				$('#relModal').modal();
+				//$('#relContainer').load();
+			}
+			
+			$( '#calendar' ).jCalendar(dados, dayclick);
+			
+		</script>
+<!-- ################################################### -->	
+</body>
+</html>
