@@ -9,6 +9,13 @@ monthabbrs : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'O
 startIn : 0,
 }
 
+jQuery.fn.jCalAdd = function (dados)
+	{
+		cal = $.cal;
+		
+		cal.setData(dados);
+	}
+
 jQuery.fn.jCalendar = function (dados, callback)
 {
 	var args = $.calendarOptions;
@@ -32,5 +39,6 @@ jQuery.fn.jCalendar = function (dados, callback)
 		cal.gotoNow( updateMonthYear );
 	} );
 	
+	$.cal = cal;
 	updateMonthYear();
 }

@@ -3,25 +3,56 @@
 <title> AGENDA </title>
 <link rel="stylesheet"
       th:href="@{/css/novo.css}"
-      href="../../css/novo.css"/>
+      />
 <link rel="stylesheet"
       th:href="@{/css/calendario/css/calendar_siger.css}"
       />
+<link rel="stylesheet"
+      th:href="@{/css/bootstrap/css/bootstrap.min.css}"
+      />
+<script type="text/javascript"
+      th:src="@{/js/general/jquery.min.js}"
+      ></script>
+<script type="text/javascript"
+      th:src="@{/js/calendario/js/jquery.calendario.js}"
+      ></script>
+<script type="text/javascript"
+      th:src="@{/js/pluginsjs/jCalendar.js}"
+      ></script>
+<script type="text/javascript"
+      th:src="@{/js/bootstrap/js/bootstrap.min.js}"
+      ></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 		<style>
 		#calendar{
 			height: 90%;
+			margin-bottom: 20px;
+			margin-left: 20px;
+			margin-right: 20px;
 		}
 		#nav-calendar{
 			text-align: right;
+			margin-right: 20px;
+		}
+		#anotacao{
+			height: 200px;
+			width: 100%;
 		}
 		.fc-compromisso {
 			color: #fff;
 			font-size: 11px;
 			font-family: arial;
 		}
-
+		
+		.fc-content > div{
+			color: white;
+		}
+		
+		.fc-today > div{
+			color: blue;
+		}
+		
 		#relContainer div#loading
 		{
 			text-align: center;
@@ -49,7 +80,7 @@
 		</style>    
 </head>
 
-<body>
+<body onunload='saveDados()'>
 <div th:replace="../fragments/header :: header"></div>
 	<h1> AGENDA </h1>
 <!-- ################################################### -->	
@@ -69,24 +100,72 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		        <h4 class="modal-title" id="relModalLabel">Eventos do dia</h4>
+		        <h4 class="modal-title" id="relModalLabel">Anotações do dia</h4>
 		      </div>
 		      <div class="modal-body printSection" id="relContainer">
+		      	<input type='hidden' id='fieldDia'/>
+		      	<input type='hidden' id='fieldMes'/>
+		      	<input type='hidden' id='fieldAno'/>
+		      	<textarea id='anotacao'></textarea>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-		        <button type="button" class="btn btn-primary" onclick='window.print()'>Imprimir</button>
+		        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='addAnottation()'>Fechar</button>
 		      </div>
 		    </div>
 		  </div>
 		</div>
 		<!-- ############################################################################# -->  
 		
-		<script type="text/javascript">
-			
-			var dados = {
-			};
+		<script type="text/javascript" th:inline="javascript">
 
+			function addData(myData){
+				if ($.isPlainObject(myData))
+					$.dadosCal = $.extend({}, $.dadosCal, myData);
+			}
+
+			var dados = 
+			[[${dados}]]
+			;
+			
+			//addData(dados);
+			
+			function addAnottation(){
+				var dia = $('#fieldDia').val();
+				var mes = $('#fieldMes').val();
+				var ano = $('#fieldAno').val();
+				
+				// evitando bug do calendario que nao aceita dia e mes com um digito
+				if (dia.length == 1) dia = "0"+dia;
+				if (mes.length == 1) mes = "0"+mes;
+				
+				// preparando dados
+				var data = mes+"-"+dia+"-"+ano;
+				var texto = $('#anotacao').val();
+				$('#anotacao').val("");
+				var not = {};
+				not[data] = texto;
+				
+				addData(not);
+				$( '#calendar' ).jCalAdd(not);
+			}
+			
+			function saveDados(){
+				var meusDados = $.dadosCal;
+				var str = "";
+				var first = 0;
+				
+				for (key in meusDados){
+					if (first++ > 0) str += "##BR##";
+					str += key + "##:##" + meusDados[key];
+				}
+				
+				// bloqueio csrf
+				var csrfcode = $("input[name='_csrf']").val();
+				
+				// enfim, enviando para salvar
+				jQuery.post("/agendasave", {'dados':str, '_csrf':csrfcode}, function(){ console.log('saved!')}, "text");
+			}
+			
 			function dayclick($el, $contentEl, dateProperties){
 				/*
 				Elementos de dateProperties:
@@ -97,13 +176,19 @@
 				weekday
 				weekdayname
 				*/
-				$('#relContainer').html("<div id='loading'><img src='/siger/img/loadingAnimation.gif'/></div>");
+				//$('#relContainer').html();
+				$('#fieldDia').val(dateProperties['day']);
+				$('#fieldMes').val(dateProperties['month']);
+				$('#fieldAno').val(dateProperties['year']);
+				if ($contentEl.html() != undefined)
+					$('#anotacao').val($contentEl.html());
+				else
+					$('#anotacao').val("");
 				$('#relModal').modal();
 				//$('#relContainer').load();
 			}
 			
 			$( '#calendar' ).jCalendar(dados, dayclick);
-			
 		</script>
 <!-- ################################################### -->	
 </body>
